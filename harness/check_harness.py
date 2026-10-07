@@ -114,7 +114,7 @@ def stage2_unit_tests() -> list:
         print("  \033[1;33m⚠️ Stage 2 SKIP: tests/ 디렉토리에 테스트 파일이 없습니다. (단위 테스트 추가 권장)\033[0m")
         return failures
 
-    res = subprocess.run(["python3", "-m", "pytest", test_dirs[0], "-v", "--tb=short"], capture_output=True, text=True)
+    res = subprocess.run([sys.executable, "-m", "pytest", test_dirs[0], "-v", "--tb=short"], capture_output=True, text=True)
     if res.returncode == 0:
         print("  \033[1;32m✅ Stage 2 PASS: 모든 단위/통합 테스트 100% 통과\033[0m")
     else:
